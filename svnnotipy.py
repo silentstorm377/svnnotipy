@@ -3,12 +3,12 @@ import sys
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from svnnotifyldap import SvnNotifyLDAP
-from svnnotifysvnlook import SvnNotifySVNLook
-from svnnotifyconfig import SvnNotifyConfig
+from svnnotipyldap import SvnNotipyLDAP
+from svnnotipysvnlook import SvnNotipySVNLook
+from svnnotipyconfig import SvnNotipyConfig
 from string import Template
 
-class SvnNotify(object):
+class SvnNotipy(object):
     def __init__(self, svnRepos, svnRevision, baseDir):
         self.svnRepos = svnRepos
         self.svnRevision = str(svnRevision)
@@ -152,7 +152,7 @@ class SvnNotify(object):
         mapping['svnAuthorRealName'] = self.svnAuthorRealName
         mapping['svnDate'] = self.svnDate
         mapping['svnRevision'] = self.svnRevision
-        css = open(self.baseDir + 'template/svnnotify.css', 'r').read()
+        css = open(self.baseDir + 'template/svnnotipy.css', 'r').read()
         mapping['css'] = css
         mapping['svnLog'] = self.svnLog
 
@@ -167,7 +167,7 @@ class SvnNotify(object):
         template = Template(templateRaw)
         html = template.substitute(mapping)
 
-        mailConfig = self.svnNotifyConfig.getMailConfig()
+        mailConfig = self.svnNotipyConfig.getMailConfig()
         svnAuthorEmail = self.svnAuthor + mailConfig['domain_suffix']
         
         msg = MIMEMultipart()
@@ -183,27 +183,27 @@ class SvnNotify(object):
         s.quit()
 
     def initConfig(self):
-        svnNotifySvnLook = SvnNotifySVNLook(self.svnRepos, self.svnRevision)
-        self.svnNotifyConfig = SvnNotifyConfig(self.baseDir)
-        svnNotifyLdap = SvnNotifyLDAP(self.svnNotifyConfig.getLdapConfig())
+        svnNotipySvnLook = SvnNotipySVNLook(self.svnRepos, self.svnRevision)
+        self.svnNotipyConfig = SvnNotipyConfig(self.baseDir)
+        svnNotipyLdap = SvnNotipyLDAP(self.svnNotipyConfig.getLdapConfig())
         
-        self.svnAuthor = svnNotifySvnLook.getSvnAuthor()
-        self.svnDate = svnNotifySvnLook.getSvnDate()
-        self.svnLog = svnNotifySvnLook.getSvnCommitLog(0)
-        self.svnLogForSubject = svnNotifySvnLook.getSvnCommitLog(1)
-        self.svnDiffList = svnNotifySvnLook.getSvnDiffList()
-        self.svnFilesChanged = svnNotifySvnLook.getSvnFilesChanged()
+        self.svnAuthor = svnNotipySvnLook.getSvnAuthor()
+        self.svnDate = svnNotipySvnLook.getSvnDate()
+        self.svnLog = svnNotipySvnLook.getSvnCommitLog(0)
+        self.svnLogForSubject = svnNotipySvnLook.getSvnCommitLog(1)
+        self.svnDiffList = svnNotipySvnLook.getSvnDiffList()
+        self.svnFilesChanged = svnNotipySvnLook.getSvnFilesChanged()
         self.svnRootDir = self.svnFilesChanged['rootdir']
-        self.svnAuthorRealName = svnNotifyLdap.getAuthorRealName(self.svnAuthor)
+        self.svnAuthorRealName = svnNotipyLdap.getAuthorRealName(self.svnAuthor)
 
         self.svnAddedHtml = ''
         self.svnModifiedHtml = ''
         self.svnDeletedHtml = ''
         
-    def doNotify(self):
+    def doNotipy(self):
         # load the configurations and determine if an email should be sent and to who
         mailTo = []
-        for config in self.svnNotifyConfig.getApplicableConfigs(self.svnFilesChanged['all'], self.svnAuthor):
+        for config in self.svnNotipyConfig.getApplicableConfigs(self.svnFilesChanged['all'], self.svnAuthor):
             # Create a list of unique emailaddresses. This avoids sending multiple emails to the same recipient
             mailTo = list(set(mailTo + config['mailTo']))
 
@@ -213,7 +213,7 @@ class SvnNotify(object):
 svnRepos = sys.argv[1]
 svnRevision = sys.argv[2]
 
-svnNotify = SvnNotify(svnRepos, svnRevision, 'D:/Repositories/svnrepos/hooks/svnnotify/')
-svnNotify.doNotify()
+svnNotipy = SvnNotipy(svnRepos, svnRevision, 'D:/Repositories/svnrepos/hooks/svnnotipy/')
+svnNotipy.doNotipy()
 
 
