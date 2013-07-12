@@ -144,10 +144,8 @@ class SvnNotipy(object):
         
         return diffHtml
 
-    # This method sends an HTML formatted email containing the details of
-    # the svn commit.
-    def sendMail(self, mailTo):
-        mapping = dict()
+	def buildHTML(self):
+		mapping = dict()
         mapping['svnAuthor'] = self.svnAuthor
         mapping['svnAuthorRealName'] = self.svnAuthorRealName
         mapping['svnDate'] = self.svnDate
@@ -166,6 +164,13 @@ class SvnNotipy(object):
         templateRaw = open(self.baseDir + 'template/general.html', 'r').read()
         template = Template(templateRaw)
         html = template.substitute(mapping)
+		
+		return html
+		
+    # This method sends an HTML formatted email containing the details of
+    # the svn commit.
+    def sendMail(self, mailTo):
+        html = buildHTML()
 
         mailConfig = self.svnNotipyConfig.getMailConfig()
         svnAuthorEmail = self.svnAuthor + mailConfig['domain_suffix']
