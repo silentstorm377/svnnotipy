@@ -1,6 +1,6 @@
 import ldap
 
-class SvnNotifyLDAP(object):
+class SvnNotipyLDAP(object):
     def __init__(self, ldapConfig):
         self.ldapConfig = ldapConfig
 

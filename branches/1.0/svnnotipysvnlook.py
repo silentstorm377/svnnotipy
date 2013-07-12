@@ -1,6 +1,6 @@
 import subprocess
 
-class SvnNotifySVNLook(object):
+class SvnNotipySVNLook(object):
     def __init__(self, svnRepos, svnRevision):
         self.svnRepos = svnRepos
         self.svnRevision = str(svnRevision)
