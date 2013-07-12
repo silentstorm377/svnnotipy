@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<SvnNotifyConfig>
+	<ldap ldap_server="ldap://<ldapserver>" bind_dn="<user@domain.com>" bind_pass="<password>" user_base="<dc=domain,dc=com>"/>
+	<mail mail_server="<mailserver>" domain_suffix="<@domain.com>"/>
+	
+	<!-- possible values for Type: "StartsWith" or "Contains" -->
+	
+	<!-- All commits done by employees of the service department -->
+	<RepoPathConfig ControlledPaths="/" Type="StartsWith" AuthorInLDAPGroup="<groupname>">
+		<MailTo>a@b.c</MailTo>
+	</RepoPathConfig>
+	
+	<!-- All commits on paths containing the word 'core' -->
+	<RepoPathConfig ControlledPaths="/" Type="Contains">
+		<MailTo>a@b.c</MailTo>
+	</RepoPathConfig>
+</SvnNotifyConfig>
