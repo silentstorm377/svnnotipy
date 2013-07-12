@@ -1,0 +1,293 @@
+#msg DL
+{
+	border-right: #006 1px solid;
+	padding-right: 6px;
+	border-top: #006 1px solid;
+	padding-left: 6px;
+	background: #369;
+	padding-bottom: 6px;
+	border-left: #006 1px solid;
+	color: #fff;
+	padding-top: 6px;
+	border-bottom: #006 1px solid;
+}
+#msg DT
+{
+	font-weight: bold;
+	float: left;
+	width: 6em;
+}
+#msg DT:unknown
+{
+	content: ':';
+}
+#msg DL
+{
+	font-size: 10pt;
+	font-family: verdana,arial,helvetica,sans-serif;
+}
+#msg DT
+{
+	font-size: 10pt;
+	font-family: verdana,arial,helvetica,sans-serif;
+}
+#msg UL
+{
+	font-size: 10pt;
+	font-family: verdana,arial,helvetica,sans-serif;
+}
+#msg LI
+{
+	font-size: 10pt;
+	font-family: verdana,arial,helvetica,sans-serif;
+}
+#msg DL A
+{
+	font-weight: bold;
+}
+#msg DL A:link
+{
+	color: #fc3;
+}
+#msg DL A:active
+{
+	color: #ff0;
+}
+#msg DL A:visited
+{
+	color: #cc6;
+}
+H3
+{
+	font-weight: bold;
+	font-size: 10pt;
+	font-family: verdana,arial,helvetica,sans-serif;
+}
+#msg PRE
+{
+	border:#fc0 1px solid;	padding:6px; background:#ffc;
+	border-right: #fc0 1px solid;
+	padding-right: 6px;
+	border-top: #fc0 1px solid;
+	padding-left: 6px;
+	background: #ffc;
+	padding-bottom: 6px;
+	overflow: auto;
+	border-left: #fc0 1px solid;
+	padding-top: 6px;
+	border-bottom: #fc0 1px solid;
+
+}
+#msg UL
+{
+	overflow: auto;
+}
+.message
+{
+	border:#fc0 1px solid;	padding:6px; background:#ffc;
+	border-right: #fc0 1px solid;
+	padding-right: 6px;
+	border-top: #fc0 1px solid;
+	padding-left: 6px;
+	background: #ffc;
+	padding-bottom: 6px;
+	overflow: auto;
+	border-left: #fc0 1px solid;
+	padding-top: 6px;
+	border-bottom: #fc0 1px solid;
+	font-size: 10pt;
+	font-family: Courier New,Courier,verdana,arial,helvetica,sans-serif;
+}
+PRE
+{
+	overflow: auto;
+}
+#patch
+{
+	width: 100%;
+}
+#patch H4
+{
+	padding-right: 8px;
+	padding-left: 8px;
+	font-size: 10pt;
+	background: #369;
+	padding-bottom: 8px;
+	margin: 0px;
+	color: #fff;
+	padding-top: 8px;
+	font-family: verdana,arial,helvetica,sans-serif;
+}
+#patch .propset H4
+{
+	margin: 0px;
+}
+#patch .binary H4
+{
+	margin: 0px;
+}
+#patch PRE
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	margin: 0px;
+	line-height: 1.2em;
+	padding-top: 0px;
+}
+#patch .diff
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	background: #eee;
+	padding-bottom: 5px;
+	overflow: auto;
+	width: 100%;
+	padding-top: 0px;
+}
+#patch .propset .diff
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+#patch .binary .diff
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+#patch SPAN
+{
+	padding-right: 10px;
+	display: block;
+	padding-left: 10px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+#patch .modfile
+{
+	border-right: #ccc 1px solid;
+	border-top: #ccc 1px solid;
+	margin: 10px 0px;
+	border-left: #ccc 1px solid;
+	border-bottom: #ccc 1px solid;
+}
+#patch .addfile
+{
+	border-right: #ccc 1px solid;
+	border-top: #ccc 1px solid;
+	margin: 10px 0px;
+	border-left: #ccc 1px solid;
+	border-bottom: #ccc 1px solid;
+}
+#patch .delfile
+{
+	border-right: #ccc 1px solid;
+	border-top: #ccc 1px solid;
+	margin: 10px 0px;
+	border-left: #ccc 1px solid;
+	border-bottom: #ccc 1px solid;
+}
+#patch .propset
+{
+	border-right: #ccc 1px solid;
+	border-top: #ccc 1px solid;
+	margin: 10px 0px;
+	border-left: #ccc 1px solid;
+	border-bottom: #ccc 1px solid;
+}
+#patch .binary
+{
+	border-right: #ccc 1px solid;
+	border-top: #ccc 1px solid;
+	margin: 10px 0px;
+	border-left: #ccc 1px solid;
+	border-bottom: #ccc 1px solid;
+}
+#patch .copfile
+{
+	border-right: #ccc 1px solid;
+	border-top: #ccc 1px solid;
+	margin: 10px 0px;
+	border-left: #ccc 1px solid;
+	border-bottom: #ccc 1px solid;
+}
+#patch INS
+{
+	padding-right: 10px;
+	display: block;
+	padding-left: 10px;
+	background: #dfd;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	text-decoration: none;
+}
+#patch DEL
+{
+	padding-right: 10px;
+	display: block;
+	padding-left: 10px;
+	background: #fdd;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	text-decoration: none;
+}
+#patch .lines
+{
+	background: #fff;
+	color: #888;
+}
+.info
+{
+	background: #fff;
+	color: #888;
+}
+.toplink
+{
+	font-size: 9pt;
+	font-family: verdana,arial,helvetica,sans-serif;
+}
+.createdby
+{
+	font-size: 7pt;
+	font-family: verdana,arial,helvetica,sans-serif;
+	color: Gray;
+}
+#hdr
+{
+	width: 100%;
+	cell-padding: 2;
+	cell-spacing: 2;
+	background-color: #369;
+}
+td
+{
+	font-family: verdana,arial,helvetica,sans-serif;
+	color: #fff;
+	font-size: 10pt;
+}
+td.cellDesc
+{
+	width: 1px;
+	font-weight: bold;
+}
+
+#msg table a:link
+{
+	color: #fc3;
+}
+#msg table a:active
+{
+	color: #ff0;
+}
+#msg table a:visited
+{
+	color: #cc6;
+}
+#msg td.cellDesc:after
+{
+	content: ':';
+}
