@@ -1,10 +1,10 @@
 import xml.etree.ElementTree as ET
-from svnnotifyldap import SvnNotifyLDAP
+from svnnotipyldap import SvnNotipyLDAP
 
-class SvnNotifyConfig(object):
+class SvnNotipyConfig(object):
     def __init__(self, baseDir):
         self.baseDir = baseDir
-        self.tree = ET.parse(self.baseDir + 'config/svnnotifyconfig.xml')
+        self.tree = ET.parse(self.baseDir + 'config/svnnotipyconfig.xml')
         self.root = self.tree.getroot()
         
     def readAllConfigs(self):
@@ -24,12 +24,12 @@ class SvnNotifyConfig(object):
         configs = self.readAllConfigs()
         applicableConfigs = []
 
-        svnNotifyLdap = SvnNotifyLDAP(self.getLdapConfig())
+        svnNotipyLdap = SvnNotipyLDAP(self.getLdapConfig())
         for config in configs:
             # First check if the author is in the configured ldap group.
             # If this attribute is not set then skip the check.
             if config['authorInLdapGroup'] is not None:
-                if svnNotifyLdap.isAuthorInGroup(svnAuthor, config['authorInLdapGroup']) == 0:
+                if svnNotipyLdap.isAuthorInGroup(svnAuthor, config['authorInLdapGroup']) == 0:
                     continue
 
             for path in config['controlledPaths']:
